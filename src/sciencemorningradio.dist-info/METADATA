@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Briefcase-Version: 0.3.11
+Name: sciencemorningradio
+Formal-Name: ScienceMorningRadio
+App-ID: com.example.sciencemorningradio
+Version: 0.0.1
+Home-page: https://example.com/sciencemorningradio
+Download-URL: https://example.com/sciencemorningradio
+Author: Conor Jackson
+Author-email: conorgjackson@gmail.com
+Summary: Reads the abstracts of scientific papers from preprint servers out loud
