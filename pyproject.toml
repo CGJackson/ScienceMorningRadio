@@ -1,0 +1,72 @@
+[tool.briefcase]
+project_name = "ScienceMorningRadio"
+bundle = "com.example"
+version = "0.0.1"
+url = "https://example.com/sciencemorningradio"
+license = "GNU General Public License v3 (GPLv3)"
+author = 'Conor Jackson'
+author_email = "conorgjackson@gmail.com"
+
+[tool.briefcase.app.sciencemorningradio]
+formal_name = "ScienceMorningRadio"
+description = "Reads the abstracts of scientific papers from preprint servers out loud"
+icon = "src/sciencemorningradio/resources/sciencemorningradio"
+sources = ['src/sciencemorningradio']
+requires = [
+]
+
+
+[tool.briefcase.app.sciencemorningradio.macOS]
+requires = [
+    'toga-cocoa>=0.3.0.dev38',
+    'std-nslog~=1.0.0'
+]
+
+[tool.briefcase.app.sciencemorningradio.linux]
+requires = [
+    'toga-gtk>=0.3.0.dev38',
+]
+
+[tool.briefcase.app.sciencemorningradio.linux.appimage]
+system_requires = [
+    'gir1.2-webkit-3.0',
+    'libcairo2-dev',
+    'libgirepository1.0-dev',
+    'libgtk-3-dev',
+    'libpango1.0-dev',
+    'librsvg2-dev',
+    'libwebkitgtk-3.0-0',
+]
+linuxdeploy_plugins = [
+    'DEPLOY_GTK_VERSION=3 gtk',
+]
+
+[tool.briefcase.app.sciencemorningradio.linux.flatpak]
+flatpak_runtime = 'org.gnome.Platform'
+flatpak_runtime_version = '42'
+flatpak_sdk = 'org.gnome.Sdk'
+
+[tool.briefcase.app.sciencemorningradio.windows]
+requires = [
+    'toga-winforms>=0.3.0.dev38',
+]
+
+# Mobile deployments
+[tool.briefcase.app.sciencemorningradio.iOS]
+requires = [
+    'toga-iOS>=0.3.0.dev38',
+    'std-nslog~=1.0.0'
+]
+
+[tool.briefcase.app.sciencemorningradio.android]
+requires = [
+    'toga-android>=0.3.0.dev38'
+]
+
+[tool.briefcase.app.sciencemorningradio.web]
+requires = [
+    # Workaround; toga-web 0.3.0.dev38 doesn't include toga-core as a dependency.
+    "toga-core>=0.3.0.dev38",
+    "toga-web>=0.3.0.dev38",
+]
+style_framework = "Bootstrap v4.6"
