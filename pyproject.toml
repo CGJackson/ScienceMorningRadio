@@ -19,7 +19,9 @@ requires = [
 [tool.briefcase.app.sciencemorningradio.macOS]
 requires = [
     'toga-cocoa>=0.3.0.dev38',
-    'std-nslog~=1.0.0'
+    'std-nslog~=1.0.0',
+    'feedparser',
+    'pyttsx3'
 ]
 
 [tool.briefcase.app.sciencemorningradio.linux]
