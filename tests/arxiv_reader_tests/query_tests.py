@@ -1,6 +1,9 @@
+import sys
 import unittest
 
-import sciencemorningradio.arvix_reader.query as query
+sys.path.append('src')
+
+import sciencemorningradio.arxiv_reader.query as query
 
 class TestURLBuilder(unittest.TestCase):
     def test_search_all_electron(self):
@@ -8,7 +11,7 @@ class TestURLBuilder(unittest.TestCase):
         self.assertEqual(query.url_builder(search={'all':'electron'}),expected)
     def test_search_all_proton(self):
         expected = 'http://export.arxiv.org/api/query?search_query=all:proton'
-        self.assertEqual(query.url_builder(search={'all':'electron'}),expected)
+        self.assertEqual(query.url_builder(search={'all':'proton'}),expected)
     def test_search_all_electron_with_max_number(self):
         expected = 'http://export.arxiv.org/api/query?search_query=all:electron&max_results=7'
         self.assertEqual(query.url_builder(search={'all':'electron'},max_results=7),expected)
