@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <link href="http://arxiv.org/api/query?search_query%3D%26id_list%3D2106.09059%2C2212.07445%26start%3D0%26max_results%3D2" rel="self" type="application/atom+xml"/>
-  <title type="html">ArXiv Query: search_query=&amp;id_list=2106.09059,2212.07445&amp;start=0&amp;max_results=2</title>
-  <id>http://arxiv.org/api/8Wtoq089ywHJ4g1+33nc2U0+1mE</id>
+  <link href="http://arxiv.org/api/query?search_query%3D%26id_list%3D2106.09059%2C1206.4962%26start%3D0%26max_results%3D2" rel="self" type="application/atom+xml"/>
+  <title type="html">ArXiv Query: search_query=&amp;id_list=2106.09059,1206.4962&amp;start=0&amp;max_results=2</title>
+  <id>http://arxiv.org/api/5LzBvJDwaipmtDOYsvjvyONBJq8</id>
   <updated>2022-12-18T00:00:00-05:00</updated>
   <opensearch:totalResults xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/">2</opensearch:totalResults>
   <opensearch:startIndex xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/">0</opensearch:startIndex>
@@ -43,54 +43,64 @@ speed at which some quantum gates could operate.
     <category term="cond-mat.quant-gas" scheme="http://arxiv.org/schemas/atom"/>
   </entry>
   <entry>
-    <id>http://arxiv.org/abs/2212.07445v1</id>
-    <updated>2022-12-14T19:00:02Z</updated>
-    <published>2022-12-14T19:00:02Z</published>
-    <title>Superconductivity in monolayer and few-layer graphene: III
-  Impurity-induced subgap states and quasi-particle interference patterns</title>
-    <summary>  We consider the most energetically favorable symmetry-allowed spin-singlet
-and spin-triplet superconducting pairing symmetries in monolayer and few-layer
-graphene, and for each calculate the energy spectrum in the presence of a
-scalar or magnetic impurity. We find that two doubly degenerate subgap states
-exist for scalar impurities for all types of pairing, except for the
-spin-singlet $s$-wave state. For magnetic impurities, two or four subgap states
-may form depending on the order parameter symmetry. We find that the spin
-polarization of these states allows one to distinguish between spin-singlet and
-triplet pairing, for example, only the spin-triplet states show opposite-energy
-subgap states with the same spin. We also calculate the quasi-particle
-interference patterns associated with the subgap states and find that they
-exhibit features that could distinguish between different types of pairing
-symmetries, especially a breaking of rotational symmetry for nodal states,
-stronger for the spin-singlet $d_{xy}$ and $d_{x^2-y^2}$ than for the
-spin-triplet $p_x$ and $p_y$ states.
+    <id>http://arxiv.org/abs/1206.4962v1</id>
+    <updated>2012-06-21T18:31:30Z</updated>
+    <published>2012-06-21T18:31:30Z</published>
+    <title>Time dependent impurity in ultracold fermions: orthogonality catastrophe
+  and beyond</title>
+    <summary>  Recent experimental realization of strongly imbalanced mixtures of ultracold
+atoms opens new possibilities for studying impurity dynamics in a controlled
+setting. We discuss how the techniques of atomic physics can be used to explore
+new regimes and manifestations of Anderson's orthogonality catastrophe (OC),
+which could not be accessed in solid state systems. We consider a system of
+impurity atoms localized by a strong optical lattice potential and immersed in
+a sea of itinerant Fermi atoms. Ramsey interference experiments with impurity
+atoms probe OC in the time domain, while radio-frequency (RF) spectroscopy
+probes OC in the frequency domain. The OC in such systems is universal for all
+times and is determined by the impurity scattering length and Fermi wave vector
+of itinerant fermions. We calculate the universal Ramsey response and RF
+absorption spectra. In addition to the standard power-law contribution, which
+corresponds to the excitation of multiple particle-hole pairs near the Fermi
+surface, we identify a novel contribution to OC that comes from exciting one
+extra particle from the bottom of the itinerant band. This gives rise to a
+non-analytic feature in the RF absorption spectra, which evolves into a true
+power-law singularity with universal exponent 1/4 at the unitarity.
+Furthermore, we discuss the manifestations of OC in spin-echo experiments, as
+well as in the energy counting statistic of the Fermi gas following a sudden
+quench of the impurity state. Finally, systems in which the itinerant fermions
+have two or more hyperfine states provide an even richer playground for
+studying non-equilibrium impurity physics, allowing one to explore
+non-equilibrium OC and to simulate quantum transport through nano-structures.
+This provides a useful connection between cold atomic systems and mesoscopic
+quantum transport.
 </summary>
     <author>
-      <name>Emile Pangburn</name>
+      <name>Michael Knap</name>
     </author>
     <author>
-      <name>Louis Haurie</name>
+      <name>Aditya Shashi</name>
     </author>
     <author>
-      <name>Adeline Crépieux</name>
+      <name>Yusuke Nishida</name>
     </author>
     <author>
-      <name>Oladunjoye A. Awoga</name>
+      <name>Adilet Imambekov</name>
     </author>
     <author>
-      <name>Nicholas Sedlmayr</name>
+      <name>Dmitry A. Abanin</name>
     </author>
     <author>
-      <name>Annica M. Black-Schaffer</name>
+      <name>Eugene Demler</name>
     </author>
-    <author>
-      <name>Catherine Pépin</name>
-    </author>
-    <author>
-      <name>Cristina Bena</name>
-    </author>
-    <link href="http://arxiv.org/abs/2212.07445v1" rel="alternate" type="text/html"/>
-    <link title="pdf" href="http://arxiv.org/pdf/2212.07445v1" rel="related" type="application/pdf"/>
-    <arxiv:primary_category xmlns:arxiv="http://arxiv.org/schemas/atom" term="cond-mat.supr-con" scheme="http://arxiv.org/schemas/atom"/>
-    <category term="cond-mat.supr-con" scheme="http://arxiv.org/schemas/atom"/>
+    <arxiv:doi xmlns:arxiv="http://arxiv.org/schemas/atom">10.1103/PhysRevX.2.041020</arxiv:doi>
+    <link title="doi" href="http://dx.doi.org/10.1103/PhysRevX.2.041020" rel="related"/>
+    <arxiv:comment xmlns:arxiv="http://arxiv.org/schemas/atom">15 pages, 7 figures</arxiv:comment>
+    <arxiv:journal_ref xmlns:arxiv="http://arxiv.org/schemas/atom">Phys. Rev. X 2, 041020 (2012)</arxiv:journal_ref>
+    <link href="http://arxiv.org/abs/1206.4962v1" rel="alternate" type="text/html"/>
+    <link title="pdf" href="http://arxiv.org/pdf/1206.4962v1" rel="related" type="application/pdf"/>
+    <arxiv:primary_category xmlns:arxiv="http://arxiv.org/schemas/atom" term="cond-mat.quant-gas" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cond-mat.quant-gas" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cond-mat.mes-hall" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cond-mat.str-el" scheme="http://arxiv.org/schemas/atom"/>
   </entry>
 </feed>
