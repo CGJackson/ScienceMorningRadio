@@ -4,7 +4,7 @@ from typing import Optional,List,Dict
 
 import feedparser
 
-from sciencemorningradio.article import Article
+from src.sciencemorningradio.article import Article
 
 # Opensearch metadata such as totalResults, startIndex, 
 # and itemsPerPage live in the opensearch namespase.
@@ -50,8 +50,8 @@ def _build_search_string(search_parameters:Dict[str,str]):
 
     return 'search_query=' + '+AND+'.join(search_terms)
 
-_build_search_string._search_fields = {'all':'all','id':'id','report number':'rn',
-        'category':'cat','journal reference':'jr','comment':'co',
+_build_search_string._search_fields = {'all':'all','id':'id','report_number':'rn',
+        'category':'cat','journal_reference':'jr','comment':'co',
         'abstract':'abs','author':'au','title':'tl'}
 
 
