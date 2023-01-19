@@ -1,18 +1,19 @@
 import datetime
 
-import src.sciencemorningradio.arxiv_reader as arxiv_reader
+import sciencemorningradio.arxiv_reader as arxiv_reader
 
 class Playlist():
-    def __init__(self,articles,read_attributes=("title","authors","abstract"))
+    def __init__(self,name,articles,read_attributes=("title","authors","abstract"))
+        self.name = name
         self.articles = articles
         self.read_attributes = read_attributes
 
 class Feed(Playlist):
-    def __init__(self,feed_data,read_attributes=None)
+    def __init__(self,name,feed_data,read_attributes=None)
         if read_attributes is None:
-            super().__init__([])
+            super().__init__(name,[])
         else:
-            super().__init([],read_attributes)
+            super().__init(name,[],read_attributes)
         self.feed_data = feed_data
         self.last_updated = datetime.datetime.formtimestamp(0)
         self.update()
