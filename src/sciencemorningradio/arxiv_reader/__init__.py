@@ -1,25 +1,26 @@
 from dataclasses import dataclass
 from enum import Enum
-import src.sciencemorningradio.arxiv_reader.query as query
+import sciencemorningradio.arxiv_reader.query as query
 
 class SortBy(Enum):
-    relevance
-    lastUpdatedDate
-    submittedDate
+    relevance = 1
+    lastUpdatedDate = 2
+    submittedDate = 3
 
 class SortDirections(Enum):
     ascending=1
     descending=-1
 
 class SearchFields(Enum):
-    all
-    id
-    report_number
-    category
-    journal_reference
-    comment
-    abstract
-    title
+    all = 0
+    id = 1
+    title = 2
+    author = 3
+    category = 4
+    report_number 5
+    journal_reference = 6
+    abstract = 7 
+    comment = 8
 
 @dataclass
 class Query():
