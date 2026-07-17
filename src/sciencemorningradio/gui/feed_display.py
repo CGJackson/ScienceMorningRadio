@@ -15,5 +15,9 @@ def display_feed(feed: playlists.Feed):
 
     block = toga.Box(style=Pack(padding=10, background_color=status_color))
     block.add(toga.Label(str(feed.feed_data)))
+    if isinstance(feed.status, PlaylistUpdating):
+        block.add(toga.Label("Updating..."))
+    elif isinstance(feed.status, PlaylistError):
+        block.add(toga.Label(f"Error: {feed.status.error}"))
 
     return block
