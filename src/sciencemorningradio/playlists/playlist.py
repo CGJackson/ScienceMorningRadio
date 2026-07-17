@@ -1,19 +1,35 @@
 import datetime
-from typing import Tuple
+from typing import Tuple,List
 import sciencemorningradio.arxiv_reader as arxiv_reader
+from sciencemorningradio.article import Article
+
+class PlaylistStatus():
+    pass
+
+class PlaylistOK(PlaylistStatus):
+    pass
+
+class PlaylistError(PlaylistStatus):
+    def __init__(self,error:Exception):
+        self.error = error
+
+class PlaylistUpdating(PlaylistStatus):
+    def __init__(self,**kwargs):
+        self.data = kwargs
 
 class Playlist():
-    def __init__(self,name: str,articles,read_attributes: Tuple[str]=("title","authors","abstract")):
-        self.name = name
-        self.articles = articles
+    def __init__(self,name: str,articles: List[Article],read_attributes: Tuple[str]=("title","authors","abstract")):
+        self.name:str = name
+        self.articles: List[Article] = articles
         self.read_attributes = read_attributes
+        self.status: PlaylistStatus = PlaylistOK()
 
 class Feed(Playlist):
     def __init__(self,name: str,feed_data: arxiv_reader.Query,read_attributes: Tuple[str]=None):
         if read_attributes is None:
             super().__init__(name,[])
         else:
-            super().__init(name,[],read_attributes)
+            super().__init__(name,[],read_attributes)
         self.feed_data = feed_data
         self.last_updated = datetime.datetime.fromtimestamp(0)
         self.update()
