@@ -56,7 +56,7 @@ _build_search_string._search_fields = {'all':'all','id':'id','report_number':'rn
         'abstract':'abs','author':'au','title':'tl'}
 
 
-def get_articles(search:Optional[Dict[str,str]]=None,
+async def get_articles(search:Optional[Dict[str,str]]=None,
         ids:Optional[List[str]]=None,start:Optional[int]=None,
         max_results:Optional[int]=None,sort_by:Optional[str]=None,
         sort_direction:Optional[int]=None)->List[Article]:
@@ -75,13 +75,13 @@ def parse_query(response_text):
     feed = feedparser.parse(response_text)
     return ([_feed_entry_to_article(entry) for entry in feed],
             {'title':feed.feed.title,
-             'updated':datetime.fromisoformat(feed.feed.updated)})
+             'updated':datetime.datetime.fromisoformat(feed.feed.updated)})
 
 
 def _feed_entry_to_article(feed_entry) -> Article:
 
-    published_date = datetime.fromisoformat(feed_entry.published)
-    updated_date = datetime.fromisoformat(feed_entry.updated)
+    published_date = datetime.datetime.fromisoformat(feed_entry.published)
+    updated_date = datetime.datetime.fromisoformat(feed_entry.updated)
 
     affiliations = {}
     for author in feed_entry.authors:

@@ -35,8 +35,8 @@ class Query():
     sort_by:Optional[SortBy]=None
     sort_direction:Optional[SortDirection]=None
 
-    def run(self):
-        return query.get_articles(search=None if self.search is None else
+    async def run(self):
+        return await query.get_articles(search=None if self.search is None else
                                 {field.name:data 
                                 for field,data in self.search.items()},
                             ids=self.ids,

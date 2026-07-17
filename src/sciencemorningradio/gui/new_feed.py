@@ -1,3 +1,5 @@
+import asyncio
+
 import toga
 from sciencemorningradio.arxiv_reader import Query,SearchFields,SortBy,SortDirection
 from sciencemorningradio.playlists import Feed
@@ -10,6 +12,7 @@ def build_new_feed_form(app):
     def create_new_feed(button: toga.Button):
         query = Query(search={SearchFields.all: search_input.value},max_results=10,sort_by=SortBy.lastUpdatedDate)
         feed = Feed(name=name_input.value, feed_data=query)
+        asyncio.create_task(feed.update())
         app.feed_list.append(feed)
         app.main_window.content = main_screen.run_screen(app)
 
