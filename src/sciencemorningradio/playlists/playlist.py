@@ -15,7 +15,7 @@ class Feed(Playlist):
         else:
             super().__init(name,[],read_attributes)
         self.feed_data = feed_data
-        self.last_updated = datetime.datetime.formtimestamp(0)
+        self.last_updated = datetime.datetime.fromtimestamp(0)
         self.update()
 
     def update(self):

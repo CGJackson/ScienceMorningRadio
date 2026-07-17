@@ -1,6 +1,7 @@
 import toga
 from toga.style.pack import COLUMN, ROW, Pack
 
+from sciencemorningradio.gui.new_feed import build_new_feed_form
 import sciencemorningradio.gui.feed_display as feed_display
 
 import sys
@@ -22,7 +23,7 @@ def build_side_menu(app):
 
     menu = toga.Box("Side Menu",style=Pack(direction=COLUMN))
 
-    menu_options = [("New Feed", lambda button: None),
+    menu_options = [("New Feed", lambda button: build_new_feed_form(app)),
                     ("New search", lambda button: None),
                     ("Settings", lambda button: None)]
 

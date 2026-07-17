@@ -28,18 +28,19 @@ class Query():
     """
     Stores the data about a query to the arxiv API
     """
-    search:Optional[Dict[SearchFields,str]]=None,
-    ids:Optional[List[str]]=None,
-    start:Optional[int]=None,
-    max_results:Optional[int]=None,
-    sort_by:Optional[SortBy]=None,
+    search:Optional[Dict[SearchFields,str]]=None
+    ids:Optional[List[str]]=None
+    start:Optional[int]=None
+    max_results:Optional[int]=None
+    sort_by:Optional[SortBy]=None
     sort_direction:Optional[SortDirection]=None
 
     def run(self):
-        return query.get_articles(search={field.name:data 
+        return query.get_articles(search=None if self.search is None else
+                                {field.name:data 
                                 for field,data in self.search.items()},
                             ids=self.ids,
                             start=self.start,
                             max_results=self.max_results,
-                            sort_by=self.sort_by.name,
-                            sort_direction=self.sort_direction.value)
+                            sort_by=None if self.sort_by is None else self.sort_by.name,
+                            sort_direction=None if self.sort_direction is None else self.sort_direction.value)
