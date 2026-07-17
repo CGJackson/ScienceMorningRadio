@@ -13,7 +13,7 @@ def display_feed(feed: playlists.Feed):
     else:
         status_color = "white"
 
-    block = toga.Box(style=Pack(padding=10, background_color=status_color))
+    block = toga.Box(style=Pack(margin=10, background_color=status_color,direction="column"))
     block.add(toga.Label(str(feed.feed_data)))
     if isinstance(feed.status, PlaylistUpdating):
         block.add(toga.Label("Updating..."))

@@ -10,7 +10,10 @@ def run_screen(app):
 
     menu = build_side_menu(app)
 
-    feed_list_display_internal = toga.Box(children=[feed_display.display_feed(feed) for feed in app.feed_list])
+    feed_list_display_internal = toga.Box(
+        children=[feed_display.display_feed(feed) for feed in app.feed_list],
+        style=Pack(direction=COLUMN),
+    )
 
     feed_list_display = toga.ScrollContainer(content=feed_list_display_internal)
 
