@@ -1,5 +1,5 @@
 import toga
-import playlists
+import sciencemorningradio.playlists as playlists
 
 def display_feed(feed: playlists.Feed):
     block = toga.Box()

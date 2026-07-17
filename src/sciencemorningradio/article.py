@@ -21,11 +21,11 @@ class Article():
     journal_reference: Optional[str]
     comment: Optional[str]
 
-    def get_readable_string(self,attr_name:string) -> str:
+    def get_readable_string(self,attr_name:str) -> str:
         data = getattr(self,attr_name)
         if data is None:
             raise ArticleMissingAttributeError(
-                f"The article {title} does not have a {attr_name} listed")
+                f"The article {self.title} does not have a {attr_name} listed")
         if type(data) is str:
             return data
         if type(data) is datetime.datetime:

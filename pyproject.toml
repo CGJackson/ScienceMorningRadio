@@ -13,6 +13,7 @@ description = "Reads the abstracts of scientific papers from preprint servers ou
 icon = "src/sciencemorningradio/resources/sciencemorningradio"
 sources = ['src/sciencemorningradio']
 requires = [
+    "feedparser",
 ]
 
 

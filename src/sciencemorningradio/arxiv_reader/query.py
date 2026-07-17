@@ -5,7 +5,7 @@ from typing import Optional,List,Dict
 
 import feedparser
 
-from src.sciencemorningradio.article import Article
+from sciencemorningradio.article import Article
 
 # Opensearch metadata such as totalResults, startIndex, 
 # and itemsPerPage live in the opensearch namespase.
