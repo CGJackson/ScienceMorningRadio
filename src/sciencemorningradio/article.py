@@ -36,13 +36,13 @@ class Article():
             else:
                 day_suffix = "st"
             return data.strfttime(f"%d{day_suffix} %B %Y")
-        if attr == "authors":
+        if attr_name == "authors":
             return " ".join(data)
-        if attr == "primary_category":
+        if attr_name == "primary_category":
             return data[0]
-        if attr == "categories":
+        if attr_name == "categories":
             return " ".join([category[0] for category in data])
-        if attr == "author_affiliations":
+        if attr_name == "author_affiliations":
             auth_aff_strings = []
             for auth, affs in data.items():
                 aff_strings = " ".join(affs)
