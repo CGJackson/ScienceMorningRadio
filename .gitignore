@@ -47,6 +47,7 @@ var/
 *.egg-info/
 .installed.cfg
 *.egg
+briefcase-env/
 
 # IntelliJ Idea family of suites
 .idea
@@ -58,6 +59,8 @@ var/
 .idea_modules/
 
 # Briefcase build directories
+.briefcase/
+
 iOS/
 macOS/
 windows/

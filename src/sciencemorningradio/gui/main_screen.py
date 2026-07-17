@@ -3,11 +3,15 @@ from toga.style.pack import COLUMN, ROW, Pack
 
 import sciencemorningradio.gui.feed_display as feed_display
 
+import sys
+
 def run_screen(app):
 
     menu = build_side_menu(app)
 
-    feed_list_display = toga.ScrollContainer(content=app.feed_list)
+    feed_list_display_internal = toga.Box(children=app.feed_list)
+
+    feed_list_display = toga.ScrollContainer(content=feed_list_display_internal)
 
     screen = toga.SplitContainer()
     screen.content = [(menu,1),(feed_list_display,2)]
@@ -25,7 +29,7 @@ def build_side_menu(app):
     for option_name,callback in menu_options:
         button = toga.Button(text=option_name,
                 on_press=callback,
-                style=Pack(width=200,padding=5))
+                style=Pack(width=200,margin=5))
         menu.add(button)
         
     return menu
