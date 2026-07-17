@@ -10,7 +10,7 @@ def read_playlist(engine:tts.Engine, playlist):
         read_article(engine,article,playlist.read_properties)
 
 
-def read_article(engine:tts.Engine,article,properties_to_read)
+def read_article(engine:tts.Engine,article,properties_to_read):
     """
     uses text to speach engine engine to read out loud the attributes 
     properties_to_read form article

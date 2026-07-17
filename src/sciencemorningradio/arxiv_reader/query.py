@@ -1,5 +1,6 @@
 import urllib.request as urlrequest
 import urllib.parse
+import datetime
 from typing import Optional,List,Dict
 
 import feedparser
@@ -42,7 +43,7 @@ url_builder._base_url = 'http://export.arxiv.org/api/query?'
 def _build_search_string(search_parameters:Dict[str,str]):
     if any(search_field not in _build_search_string._search_fields 
             for search_field in search_parameters):
-        raise ArgumentError(f"Invalid search field passed to url_builder in {search_parameters}")
+        raise ValueError(f"Invalid search field passed to url_builder in {search_parameters}")
 
     search_terms = [
             f'{_build_search_string._search_fields[field]}:{urllib.parse.quote_plus(term)}'
@@ -63,15 +64,15 @@ def get_articles(search:Optional[Dict[str,str]]=None,
         query_url = url_builder(search,ids,start,max_results,
                                 sort_by,sort_direction)
 
-        with urlrequest.urlopen(query_url) as responce:
-            text = responce.read()
+        with urlrequest.urlopen(query_url) as response:
+            text = response.read()
 
-        parsed_responce, metadata = parse_query(text)
-        return parsed_responce, metadata
+        parsed_response, metadata = parse_query(text)
+        return parsed_response, metadata
 
 
-def parse_query(responce_text):
-    feed = feedparser.parse(responce_text)
+def parse_query(response_text):
+    feed = feedparser.parse(response_text)
     return ([_feed_entry_to_article(entry) for entry in feed],
             {'title':feed.feed.title,
              'updated':datetime.fromisoformat(feed.feed.updated)})

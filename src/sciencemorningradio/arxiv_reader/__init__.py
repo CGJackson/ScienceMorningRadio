@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from typing import Optional, List, Dict
 from enum import Enum
 import sciencemorningradio.arxiv_reader.query as query
 
@@ -7,7 +8,7 @@ class SortBy(Enum):
     lastUpdatedDate = 2
     submittedDate = 3
 
-class SortDirections(Enum):
+class SortDirection(Enum):
     ascending=1
     descending=-1
 
@@ -17,7 +18,7 @@ class SearchFields(Enum):
     title = 2
     author = 3
     category = 4
-    report_number 5
+    report_number = 5
     journal_reference = 6
     abstract = 7 
     comment = 8
@@ -34,11 +35,11 @@ class Query():
     sort_by:Optional[SortBy]=None,
     sort_direction:Optional[SortDirection]=None
 
-    def run(self)
-        return get_articles(search={field.name:data 
+    def run(self):
+        return query.get_articles(search={field.name:data 
                                 for field,data in self.search.items()},
-                            ids=self.ids
-                            start=self.start
-                            max_results=self.max_results
-                            sort_by=self.sort_by.name
+                            ids=self.ids,
+                            start=self.start,
+                            max_results=self.max_results,
+                            sort_by=self.sort_by.name,
                             sort_direction=self.sort_direction.value)

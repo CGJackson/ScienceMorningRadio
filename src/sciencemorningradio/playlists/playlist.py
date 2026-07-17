@@ -1,15 +1,15 @@
 import datetime
-
+from typing import Tuple
 import sciencemorningradio.arxiv_reader as arxiv_reader
 
 class Playlist():
-    def __init__(self,name,articles,read_attributes=("title","authors","abstract"))
+    def __init__(self,name: str,articles,read_attributes: Tuple[str]=("title","authors","abstract")):
         self.name = name
         self.articles = articles
         self.read_attributes = read_attributes
 
 class Feed(Playlist):
-    def __init__(self,name,feed_data,read_attributes=None)
+    def __init__(self,name: str,feed_data: arxiv_reader.Query,read_attributes: Tuple[str]=None):
         if read_attributes is None:
             super().__init__(name,[])
         else:
@@ -18,13 +18,13 @@ class Feed(Playlist):
         self.last_updated = datetime.datetime.formtimestamp(0)
         self.update()
 
-    def update(self)
+    def update(self):
         """
-        Updates the current list of articles to the latest avalible from
+        Updates the current list of articles to the latest available from
         arXive.org. If arXiv.org would not have been updated since the last
         update, it has no effect
         """
-        if last_updated.date() < datetime.datetime.now().date():
+        if self.last_updated.date() < datetime.datetime.now().date():
             self.articles, query_data = self.feed_data.run()
-            self.last_updated = query["updated"]
+            self.last_updated = query_data["updated"]
 
