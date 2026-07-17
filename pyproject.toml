@@ -3,7 +3,8 @@ project_name = "ScienceMorningRadio"
 bundle = "com.example"
 version = "0.0.1"
 url = "https://example.com/sciencemorningradio"
-license = "GNU General Public License v3 (GPLv3)"
+license = "GPL-3.0"
+license-files = ["LICENSE"]
 author = 'Conor Jackson'
 author_email = "conorgjackson@gmail.com"
 
