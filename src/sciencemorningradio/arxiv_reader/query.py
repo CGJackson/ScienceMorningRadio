@@ -73,7 +73,7 @@ async def get_articles(search:Optional[Dict[str,str]]=None,
 
 def parse_query(response_text):
     feed = feedparser.parse(response_text)
-    return ([_feed_entry_to_article(entry) for entry in feed],
+    return ([_feed_entry_to_article(entry) for entry in feed["entries"]],
             {'title':feed.feed.title,
              'updated':datetime.datetime.fromisoformat(feed.feed.updated)})
 
@@ -86,9 +86,9 @@ def _feed_entry_to_article(feed_entry) -> Article:
     affiliations = {}
     for author in feed_entry.authors:
         try:
-            affiliations[author.name]=author.arxiv_affiliation
+            affiliations[author["name"]]=author.arxiv_affiliation
         except AttributeError:
-            affiliations[author.name]=None
+            affiliations[author["name"]]=None
 
     links = {('main' if link.rel == 'alternate' else link.title):link.href 
             for link in feed_entry.links}
@@ -106,11 +106,10 @@ def _feed_entry_to_article(feed_entry) -> Article:
                    id=feed_entry.id.split('/abs/'),
                    published=published_date,
                    updated=updated_date,
-                   authors=[author.name for author in feed_entry.author],
+                   authors=[author["name"] for author in feed_entry.authors],
                    author_affiliations = affiliations,
-                   primary_category=(feed_entry.arxiv_primary_category.term,
-                                     feed_entry.arxiv_primary_category.scheme),
-                   categories=[(cat.term,cat.scheme) for cat in feed_entry.categories],
+                   primary_category=feed_entry.arxiv_primary_category["term"],
+                   categories=[(cat["term"],cat["scheme"]) for cat in feed_entry.category],
                    link=links['main'],
                    pdf_link=links['pdf'],
                    doi=feed_entry.arxiv_doi,

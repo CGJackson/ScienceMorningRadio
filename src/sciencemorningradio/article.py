@@ -12,7 +12,7 @@ class Article():
     abstract: str
     authors: List[str]
     author_affiliations: Dict[str,Tuple[str]]
-    primary_category: Tuple[str,str]
+    primary_category: str
     category: List[Tuple[str,str]]
     link: str
     pdf_link: str
