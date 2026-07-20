@@ -3,6 +3,7 @@ from toga.style.pack import COLUMN, ROW, Pack
 
 from sciencemorningradio.gui.new_feed import build_new_feed_form
 import sciencemorningradio.gui.feed_display as feed_display
+import sciencemorningradio.gui.playlist_screen as playlist_screen
 
 import sys
 
@@ -29,6 +30,23 @@ def build_side_menu(app):
     menu_options = [("New Feed", lambda button: build_new_feed_form(app)),
                     ("New search", lambda button: None),
                     ("Settings", lambda button: None)]
+
+    for option_name,callback in menu_options:
+        button = toga.Button(text=option_name,
+                on_press=callback,
+                style=Pack(width=200,margin=5))
+        menu.add(button)
+        
+    return menu
+
+def build_feed_menu(app,feed):
+
+    menu = toga.Box("Feed Menu",style=Pack(direction=COLUMN))
+
+    menu_options = [("View", lambda button: playlist_screen.go_to_playlist_screen(app, feed)),
+                    ("Play", lambda button: feed.read()),
+                    ("Update", lambda button: feed.update()),
+                    ("Delete", lambda button: app.feed_list.remove(feed))] # TODO add confirmation
 
     for option_name,callback in menu_options:
         button = toga.Button(text=option_name,

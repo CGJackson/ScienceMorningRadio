@@ -41,3 +41,6 @@ def build_side_menu(app,playlist):
         menu.add(button)
         
     return menu
+
+def go_to_playlist_screen(app,playlist):
+    app.main_window.content = run_screen(app,playlist)
