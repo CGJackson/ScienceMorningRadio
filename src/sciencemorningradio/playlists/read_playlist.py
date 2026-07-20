@@ -1,5 +1,5 @@
 import pyttsx3 as tts
-from src.sciencemorningradio.article import ArticleMissingAttributeError
+from sciencemorningradio.article import ArticleMissingAttributeError
 
 def read_playlist(engine:tts.Engine, playlist):
     """

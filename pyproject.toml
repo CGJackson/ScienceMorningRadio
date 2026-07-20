@@ -15,6 +15,7 @@ icon = "src/sciencemorningradio/resources/sciencemorningradio"
 sources = ['src/sciencemorningradio']
 requires = [
     "feedparser",
+    "pyttsx3",
 ]
 
 
