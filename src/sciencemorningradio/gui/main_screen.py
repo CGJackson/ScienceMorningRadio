@@ -37,3 +37,6 @@ def build_side_menu(app):
         menu.add(button)
         
     return menu
+
+def go_to_main_screen(app):
+    app.main_window.content = run_screen(app)
