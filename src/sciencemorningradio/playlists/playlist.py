@@ -27,14 +27,15 @@ class Playlist():
         self.articles: List[Article] = articles
         self.read_attributes = read_attributes
         self.status: PlaylistStatus = PlaylistOK()
-        self._references = weakref.WeakSet()
+        self._references = weakref.WeakKeyDictionary()
     
-    def register_reference(self,reference):
-        self._references.add(reference)
+    def register_reference(self,reference,behavior):
+        self._references[reference] = behavior
 
     def update_references(self):
-        for reference in self._references:
-            reference.refresh()
+        for (reference, behavior) in self._references.items():
+            behavior(reference,self)
+            
 
     def read(self,engine,**kwargs):
         """
