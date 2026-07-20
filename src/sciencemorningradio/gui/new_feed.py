@@ -25,7 +25,6 @@ def build_new_feed_form(app):
             feed_data=query,
             read_attributes=selected_attributes,
         )
-        asyncio.create_task(feed.update())
         app.feed_list.append(feed)
         app.main_window.content = main_screen.run_screen(app)
 
