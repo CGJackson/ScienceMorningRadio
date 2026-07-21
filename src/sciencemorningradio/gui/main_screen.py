@@ -12,7 +12,7 @@ def run_screen(app):
     menu = build_side_menu(app)
 
     feed_list_display_internal = toga.Box(
-        children=[feed_display.display_feed(feed) for feed in app.feed_list],
+        children=[build_feed_menu(app, feed) for feed in app.feed_list],
         style=Pack(direction=COLUMN),
     )
 
@@ -41,20 +41,29 @@ def build_side_menu(app):
 
 def build_feed_menu(app,feed):
 
-    menu = toga.Box("Feed Menu",style=Pack(direction=COLUMN))
+    feed_view = toga.Box("Feed Menu",style=Pack(direction=COLUMN))
 
+    feed_view.add(feed_display.display_feed(feed))
+
+    menu = toga.Box("Menu buttons",style=Pack(direction=ROW))
     menu_options = [("View", lambda button: playlist_screen.go_to_playlist_screen(app, feed)),
-                    ("Play", lambda button: feed.read()),
+                    ("Play", lambda button: feed.read(app.tts_engine)),
                     ("Update", lambda button: feed.update()),
-                    ("Delete", lambda button: app.feed_list.remove(feed))] # TODO add confirmation
+                    ("Delete", lambda button: delete_feed_handler(app, feed))]
 
     for option_name,callback in menu_options:
         button = toga.Button(text=option_name,
                 on_press=callback,
-                style=Pack(width=200,margin=5))
+                style=Pack(width=80,margin=5))
         menu.add(button)
-        
-    return menu
+
+    feed_view.add(menu)
+
+    return feed_view
+
+def delete_feed_handler(app, feed): # TODO add confirmation dialog
+    app.feed_list.remove(feed)
+    go_to_main_screen(app)
 
 def go_to_main_screen(app):
     app.main_window.content = run_screen(app)
