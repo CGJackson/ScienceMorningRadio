@@ -63,7 +63,8 @@ class Feed(Playlist):
 
         async def update_internal():
             try:
-                self.articles, query_data = await self.feed_data.run()
+                new_articles, query_data = await self.feed_data.run()
+                self.articles.extend(new_articles)
                 self.last_updated = query_data["updated"]
             except Exception as e:
                 self.status = PlaylistError(e)
