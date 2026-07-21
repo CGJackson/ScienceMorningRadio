@@ -27,10 +27,18 @@ def build_side_menu(app,playlist):
 
     menu = toga.Box("Side Menu",style=Pack(direction=COLUMN))
 
+    last_updated_label = toga.Label(f"Last updated: {playlist.last_updated}")
+
+    menu.add(last_updated_label)
+
+
     menu_options = [("Play", lambda button: playlists.read_playlist(playlist))]
 
     if hasattr(playlist, "update"):
-        menu_options.append(("Update", lambda button: playlist.update()))
+        def update_list_and_screen():
+            playlist.update()
+            app.main_window.content = run_screen(app,playlist)
+        menu_options.append(("Update", lambda button: update_list_and_screen()))
 
     menu_options.append(("Back", lambda button: main_screen.go_to_main_screen(app)))
 
