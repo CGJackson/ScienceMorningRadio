@@ -1,6 +1,7 @@
 import asyncio
 import datetime
 import weakref
+import traceback, sys
 from typing import Tuple,List
 import sciencemorningradio.arxiv_reader as arxiv_reader
 from sciencemorningradio.article import Article
@@ -68,6 +69,8 @@ class Feed(Playlist):
                 self.last_updated = query_data["updated"]
             except Exception as e:
                 self.status = PlaylistError(e)
+                print(f"Error updating feed {self.name}: {e}",file=sys.stderr)
+                traceback.print_exc(file=sys.stderr)
                 self.last_updated = old_last_updated
                 self.articles = old_articles
             else:
