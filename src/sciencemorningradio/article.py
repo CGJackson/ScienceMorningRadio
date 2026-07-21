@@ -7,13 +7,13 @@ from typing import List,Tuple,Optional,NamedTuple,Dict
 class Article():
     title: str
     id: str
-    puplished: datetime.datetime
+    published: datetime.datetime
     updated: datetime.datetime
     abstract: str
     authors: List[str]
     author_affiliations: Dict[str,Tuple[str]]
     primary_category: str
-    category: List[Tuple[str,str]]
+    categories: List[str]
     link: str
     pdf_link: str
     doi: Optional[str]
