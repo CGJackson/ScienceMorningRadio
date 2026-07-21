@@ -20,6 +20,7 @@ def run_screen(app, playlist):
 
     screen = toga.SplitContainer()
     screen.content = [(menu,1),(article_list_display,2)]
+    playlist.register_reference(screen, lambda screen, playlist: go_to_playlist_screen(app,playlist))
 
     return screen
 
@@ -31,14 +32,10 @@ def build_side_menu(app,playlist):
 
     menu.add(last_updated_label)
 
-
     menu_options = [("Play", lambda button: playlists.read_playlist(playlist))]
 
     if hasattr(playlist, "update"):
-        def update_list_and_screen():
-            playlist.update()
-            app.main_window.content = run_screen(app,playlist)
-        menu_options.append(("Update", lambda button: update_list_and_screen()))
+        menu_options.append(("Update", lambda button: playlist.update()))
 
     menu_options.append(("Back", lambda button: main_screen.go_to_main_screen(app)))
 
